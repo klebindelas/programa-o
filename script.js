@@ -1,12 +1,25 @@
-const caixa principal = document.querySelector(".caixa-principal");
-const caixa perguntas = document.querySelector(".caixa-perguntas");
-const caixa alternativas = document.querySelector(".caixa-alternativas");
-const caixa resultado = document.querySelector(".caixa-resultado");
+const caixa Principal = document.querySelector(".caixa-principal");
+const caixa Perguntas = document.querySelector(".caixa-perguntas");
+const caixa Alternativas = document.querySelector(".caixa-alternativas");
+const caixa Resultado = document.querySelector(".caixa-resultado");
+const caixa Resultado = document.querySelector(".caixa-resultado");
+
 
 const perguntas = [
     {
-        enunciado: "Assim que saiu da escola você se depara com uma nova tecnologia, um chat que consegue responder todas as dúvidas que uma pessoa pode ter, ele também gera imagens e áudios hiper-realistas. Qual o primeiro pensamento?",
+        enunciado: "Assim que saiu da escola você se depara com uma nova tecnologia"
         alternativas: [
+            {
+                texto: "Isso é assustador!",
+                afirmacao: "afirmacao"
+            },
+            {
+                texto: "Isso é maravilhoso!",
+                afirmacao: "afirmacao"
+            }
+        ]
+},
+
             "Isso é assustador!",
             "Isso é maravilhoso!"
         ]

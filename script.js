@@ -1,8 +1,8 @@
-const caixa Principal = document.querySelector(".caixa-principal");
-const caixa Perguntas = document.querySelector(".caixa-perguntas");
-const caixa Alternativas = document.querySelector(".caixa-alternativas");
-const caixa Resultado = document.querySelector(".caixa-resultado");
-const caixa Resultado = document.querySelector(".caixa-resultado");
+const caixaPrincipal = document.querySelector(".caixa-principal");
+const caixaPerguntas = document.querySelector(".caixa-perguntas");
+const caixaAlternativas = document.querySelector(".caixa-alternativas");
+const caixaResultado = document.querySelector(".caixa-resultado");
+const textoResultado = document.querySelector(".texto-resultado");
 
 const perguntas = [
     {
@@ -11,11 +11,17 @@ const perguntas = [
       alternativas: [
         {
           texto: "Isso é assustador!",
-          afirmacao: "afirmação",
+          afirmacao: [
+              "afirmação",
+              ""
+        ]
         },
         {
           texto: "Isso é maravilhoso!",
-          afirmacao: "afirmação",
+          afirmacao: [
+             "afirmação",
+             ""
+        ]
         },
       ],
     },
@@ -26,12 +32,17 @@ const perguntas = [
         {
           texto:
             "Utiliza uma ferramenta de busca na internet que utiliza IA para que ela ajude a encontrar informações relevantes para o trabalho e explique numa linguagem que facilite o entendimento.",
-          afirmacao: "afirmação",
+          afirmacao:[ 
+              "afirmação",
+              ]
+            
         },
         {
           texto:
             "Escreve o trabalho com base nas conversas que teve com colegas, algumas pesquisas na internet e conhecimentos próprios sobre o tema.",
-          afirmacao: "afirmação",
+          afirmacao:[ 
+              "afirmação",
+               ]
         },
       ],
     },
@@ -42,12 +53,17 @@ const perguntas = [
         {
           texto:
             "Defende a ideia de que a IA pode criar novas oportunidades de emprego e melhorar habilidades humanas.",
-          afirmacao: "afirmação",
+          afirmacao:[ 
+              "afirmação",
+               ]
+            
         },
         {
           texto:
             "Me preocupo com as pessoas que perderão seus empregos para máquinas e defendem a importância de proteger os trabalhadores.",
-          afirmacao: "afirmação",
+          afirmacao:[ 
+              "afirmação",
+               ]
         },
       ],
     },
@@ -58,11 +74,16 @@ const perguntas = [
         {
           texto:
             "Criar uma imagem utilizando uma plataforma de design como o Paint.",
-          afirmacao: "afirmação",
+          afirmacao:[ 
+              "afirmação",
+               ]
+            
         },
         {
           texto: "Criar uma imagem utilizando um gerador de imagem de IA.",
-          afirmacao: "afirmação",
+          afirmacao:[ 
+              "afirmação",
+               ]
         },
       ],
     },
@@ -73,13 +94,18 @@ const perguntas = [
         {
           texto:
             "Escrever comandos para o chat é uma forma de contribuir com o trabalho, por isso não é um problema utilizar o texto inteiro.",
-          afirmacao: "afirmação",
+          afirmacao:[ 
+              "afirmação",
+               ]
         },
         {
           texto:
             "O chat pode ser uma tecnologia muito avançada, mas é preciso manter a atenção pois toda máquina erra, por isso revisar o trabalho e contribuir com as perspectivas pessoais é essencial.",
-          afirmacao: "afirmação",
+          afirmacao:[ 
+              "afirmação",
+          ]
         },
+          
       ],
     },
   ];
@@ -108,17 +134,22 @@ function mostraAlternativas(){
     }
 }
 
-function respostaSelecionada(opcaoSelecionada) {
-    const afirmacoes = opcaoSelecionada.afirmacao;
-    historia += afirmacoes + "";
-    atual++;
-    mostraPergunta();
+function respostaSelecionada(opcaoSelecionada){
+        const afirmacoes = aleatorio(opcaoSelecionada.afirmacao);
+        historiaFinal += afirmacoes + " ";
+        atual++;
+        mostraPergunta();
 }
 
 function mostraResultado() {
     caixaPerguntas.textContent = "Em 2049...";
     textoResultado.textContent = historiaFinal;
     caixaAlternativas.textContent = "";
+}
+
+function aleatorio (lista){
+        const posicao = Math.floor(Math.random()* lista.length);
+        return lista[posicao];
 }
 
 mostraPergunta();
